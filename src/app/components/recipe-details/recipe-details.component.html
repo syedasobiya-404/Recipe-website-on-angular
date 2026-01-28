@@ -1,0 +1,34 @@
+<h1 class="text-4xl font-bold text-center mt-2">Recipe Details</h1>
+
+<div class="container mx-auto mt-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
+  <div class="row-start-2 lg:row-start-auto">
+    <div class="h-96 overflow-hidden rounded-xl group">
+      <img
+        class="w-full h-full object-cover block group-hover:scale-105 duration-300"
+        src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=400"
+        alt=""
+      />
+    </div>
+  </div>
+  <div>
+    <h2 class="text-3xl font-bold">Pizza</h2>
+    <h2 class="text-gray-600">{{ details.data.recipe.publisher }}</h2>
+    <h2 class="text-2xl font-bold">Ingredients</h2>
+    <ul class="list-disc pl-5 mt-2">
+      <li *ngFor="let i of details.data.recipe.ingredients">
+        {{ i.description }}
+      </li>
+    </ul>
+    <div class="mt-2">
+      <p>Servings: {{ details.data.recipe.servings }} person</p>
+    </div>
+    <p>Cooking Time: {{ details.data.recipe.cooking_time }} Minutes</p>
+
+    <a
+      target="_blank"
+      class="bg-blue-400 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-500 duration-300"
+      href="{{ details.data.recipe.source_url }}"
+      >Go To Source</a
+    >
+  </div>
+</div>
